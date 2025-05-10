@@ -1,0 +1,53 @@
+﻿<Window x:Class="Midterm_CS.PassengersPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm_CS"
+        mc:Ignorable="d"
+        Title="PassengersPage" Height="458" Width="780">
+    <Grid>
+        <DockPanel LastChildFill="False" Margin="0,0,0,400">
+            <Menu x:Name="mainMenu" Width="181.57">
+                <MenuItem x:Name="menuFile" FontWeight="Bold" FontSize="15" Header="File">
+                    <MenuItem x:Name="menuNew" FontSize="13" Header="New" FontWeight="Normal"/>
+                    <MenuItem x:Name="menuSave" FontWeight="Normal" FontSize="13" Header="Save"/>
+                    <MenuItem x:Name="menuQuit" FontSize="13" Header="Quit" Click="menuQuit_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuEdit" FontWeight="Bold" FontSize="15" Header="Edit">
+                    <MenuItem x:Name="menuInsert" FontWeight="Normal" FontSize="13" Header="Insert" Click="menuInsert_Click"/>
+                    <MenuItem x:Name="menuUpdate" FontWeight="Normal" FontSize="13" Header="Update" Click="menuUpdate_Click"/>
+                    <MenuItem x:Name="menuDelete" FontWeight="Normal" FontSize="13" Header="Delete" Click="menuDelete_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuHelp" FontWeight="Bold" FontSize="15" Header="Help" Click="menuHelp_Click"/>
+            </Menu>
+        </DockPanel>
+        <Grid Margin="-1,39,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+
+            </Grid.RowDefinitions>
+            <Label Content="ID :" Grid.Column="1" HorizontalAlignment="Left" Margin="35,10,50,0" VerticalAlignment="Top" Width="210"/>
+            <TextBox x:Name="txtCustId" Grid.Column="1" HorizontalAlignment="Left" Margin="35,10,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <Label x:Name="___No_Name_" Content="Customer ID :" Grid.Column="1" HorizontalAlignment="Left" Margin="35,70,0,0" VerticalAlignment="Top" Width="210"/>
+            <TextBox x:Name="txtFlight" Grid.Column="1" HorizontalAlignment="Left" Margin="35,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Flight ID :" Grid.Column="1" HorizontalAlignment="Left" Margin="35,129,0,0" VerticalAlignment="Top" Width="210"/>
+            <TextBox x:Name="txtId" Grid.Column="1" HorizontalAlignment="Left" Margin="35,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnInsert" Content="Insert" Grid.Column="1" HorizontalAlignment="Center" Margin="0,28,0,0" Grid.Row="1" VerticalAlignment="Top" Padding="4,4,4,4" Click="btnInsert_Click"/>
+            <Button x:Name="btnUpdate" Content="Update" Grid.Column="1" HorizontalAlignment="Center" Margin="0,63,0,0" Grid.Row="1" VerticalAlignment="Top" Padding="4,4,4,4" Click="btnUpdate_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" Grid.Column="1" HorizontalAlignment="Center" Margin="0,98,0,0" Grid.Row="1" VerticalAlignment="Top" Padding="4,4,4,4" Click="btnDelete_Click"/>
+            <ListBox x:Name="listPassengers" ItemsSource="{Binding}" Margin="10,40,10,42" SelectionChanged="listPassengers_SelectionChanged"/>
+            <Label Content="Passenger ListBox :" HorizontalAlignment="Left" Margin="48,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Customer ID :" HorizontalAlignment="Left" Margin="48,0,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Flight ID :" HorizontalAlignment="Left" Margin="48,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold"/>
+            <ListBox x:Name="listCustomers" ItemsSource="{Binding}" Grid.Row="1" Margin="10,28,10,121"/>
+            <ListBox x:Name="listFlights" ItemsSource="{Binding}" Grid.Row="1" Margin="10,116,10,32"/>
+            <Label x:Name="lblMode" Content="Label" HorizontalAlignment="Left" Margin="371,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Window>

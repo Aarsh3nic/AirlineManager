@@ -1,0 +1,59 @@
+﻿<Window x:Class="Midterm_CS.FlightsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm_CS"
+        mc:Ignorable="d"
+        Title="FlightsPage" Height="506" Width="820">
+    <Grid>
+        <DockPanel LastChildFill="False" Margin="0,0,0,400">
+            <Menu x:Name="mainMenu" Width="181.57">
+                <MenuItem x:Name="menuFile" FontWeight="Bold" FontSize="15" Header="File">
+                    <MenuItem x:Name="menuNew" FontSize="13" Header="New" FontWeight="Normal"/>
+                    <MenuItem x:Name="menuSave" FontWeight="Normal" FontSize="13" Header="Save"/>
+                    <MenuItem x:Name="menuQuit" FontSize="13" Header="Quit" Click="menuQuit_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuEdit" FontWeight="Bold" FontSize="15" Header="Edit">
+                    <MenuItem x:Name="menuInsert" FontWeight="Normal" FontSize="13" Header="Insert" Click="menuInsert_Click"/>
+                    <MenuItem x:Name="menuUpdate" FontWeight="Normal" FontSize="13" Header="Update" Click="menuUpdate_Click"/>
+                    <MenuItem x:Name="menuDelete" FontWeight="Normal" FontSize="13" Header="Delete" Click="menuDelete_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuHelp" FontWeight="Bold" FontSize="15" Header="Help" Click="menuHelp_Click"/>
+            </Menu>
+        </DockPanel>
+        <Grid Margin="0,39,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="10" Grid.Column="0">
+                <ListBox x:Name="listFlights" Height="100" HorizontalContentAlignment="Stretch"
+                         ItemsSource="{Binding}" SelectionChanged="ListBox_SelectionChanged" />
+                <Label x:Name="lblMode" Content="Label" Margin="0,70,0,0" FontWeight="Bold"/>
+                <Label Content="AirLine" Margin="0,30,0,0" FontWeight="Bold"/>
+                <ListBox x:Name="listAirlineId" ItemsSource="{Binding}" Height="100" Margin="0,50,0,0"/>
+
+            </StackPanel>
+            <StackPanel Margin="10" Grid.Column="1">
+                <Label Content="ID:" Margin="10,0,10,0" FontWeight="Bold"/>
+                <TextBox x:Name="txtId" TextWrapping="Wrap" Margin="10,5,10,5" TabIndex="1"/>
+                <Label x:Name="___No_Name_" Content="Airline ID:" Margin="10,0,10,5" FontWeight="Bold"/>
+                <TextBox x:Name="txtAirlineId" TextWrapping="Wrap" Margin="10,5,10,5" TabIndex="2"/>
+                <Label Content="Departure City:" Margin="10,0,10,0" FontWeight="Bold"/>
+                <TextBox x:Name="txtDPcity" TextWrapping="Wrap" Margin="10,5,10,5" TabIndex="3"/>
+                <Label Content="Destination City:" Margin="10,0,10,0" FontWeight="Bold"/>
+                <TextBox x:Name="txtDTcity" TextWrapping="Wrap" Margin="10,5,10,5" TabIndex="4"/>
+                <Label Content="Departure Date:" Margin="10,0,10,0" FontWeight="Bold"/>
+                <TextBox x:Name="txtDdate" TextWrapping="Wrap" Margin="10,5,10,5" Cursor=""/>
+                <Label Content="Flight Time:" Margin="10,0,10,0" FontWeight="Bold"/>
+                <TextBox x:Name="txtFlightTime" TextWrapping="Wrap" Margin="10,5,10,5" Cursor=""/>
+
+                <Button x:Name="btnInsert" Content="Insert" Margin="15,5,15,5" Click="btnInsert_Click"/>
+                <Button x:Name="btnUpdate" Content="Update" Margin="15,5,15,5" Click="btnUpdate_Click"/>
+                <Button x:Name="btnDelete" Content="Delete" Margin="15,5,15,5" Click="btnDelete_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
